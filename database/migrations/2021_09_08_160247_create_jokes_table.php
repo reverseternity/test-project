@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKeksTable extends Migration
+class CreateJokesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateKeksTable extends Migration
      */
     public function up()
     {
-        Schema::create('keks', function (Blueprint $table) {
+        Schema::create('jokes', function (Blueprint $table) {
             $table->id();
+            $table->string('joke_genre');
+            $table->string('joke_coolness');
+            $table->text('joke');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateKeksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keks');
+        Schema::dropIfExists('jokes');
     }
 }

@@ -1,0 +1,13 @@
+body {
+    background: black;
+    color: red;
+    max-width: 400px;
+    margin: auto;
+    font-family: Marker Felt, fantasy;
+    font-style: oblique;
+    font-weight: 900;
+    font-stretch: expanded;
+}
+p{
+    line-height: 2.0;
+}

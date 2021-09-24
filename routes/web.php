@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/greeting', [HelloController::class, 'show']);
+
+Route::post('/write', function (Request $request){});
+
+Route::get('/showtable', [JokeController::class, 'show']);
