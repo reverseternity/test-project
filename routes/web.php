@@ -21,9 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/greeting', [HelloController::class, 'show']);
+Route::get('/greeting', [HelloController::class, 'showgreeting']);
 
-Route::post('/write', function (Request $request){});
+Route::get('/thanks', [HelloController::class, 'showthanks']);
+
+Route::post('/write', [JokeController::class, 'store']); // было function (Request $request){}
 
 Route::get('/showtable', [JokeController::class, 'show']);
 

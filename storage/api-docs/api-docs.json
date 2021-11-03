@@ -2,9 +2,114 @@
     "openapi": "3.0.0",
     "info": {
         "title": "My First API",
-        "version": "0.1"
+        "contact": {
+            "email": "askrx070@gmail.com"
+        },
+        "version": "1.0.0"
     },
     "paths": {
+        "/write": {
+            "post": {
+                "tags": [
+                    "TableOperations"
+                ],
+                "summary": "Add recording to the table",
+                "operationId": "Write",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "joke_jenre",
+                                    "joke_coolness",
+                                    "joke"
+                                ],
+                                "properties": {
+                                    "joke_genre": {
+                                        "type": "string",
+                                        "example": "prison joke"
+                                    },
+                                    "joke_coolness": {
+                                        "type": "string",
+                                        "example": "legendary"
+                                    },
+                                    "joke": {
+                                        "type": "string",
+                                        "example": "There is two chairs..."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": "5"
+                                        },
+                                        "joke_genre": {
+                                            "type": "string",
+                                            "example": "prison joke"
+                                        },
+                                        "joke_coolness": {
+                                            "type": "string",
+                                            "example": "legendary"
+                                        },
+                                        "joke": {
+                                            "type": "string",
+                                            "example": "There is two chairs..."
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-04-09T10:31:14.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-04-09T10:46:26.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/showtable": {
+            "get": {
+                "tags": [
+                    "TableOperations"
+                ],
+                "summary": "Show all recordings in the table",
+                "operationId": "ShowTable",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
         "/projects": {
             "get": {
                 "operationId": "e3dfa947954e394a726a0d4795bc03f2",
@@ -16,6 +121,12 @@
             }
         }
     },
+    "tags": [
+        {
+            "name": "TableOperations",
+            "description": "Operations with tables from the project"
+        }
+    ],
     "security": [
         []
     ]
